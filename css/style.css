@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+  }
+  
+  :root {
+    /*Primary*/
+    --tomato: hsl(4, 100%, 67%);
+    
+    /*Neutral*/
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+  }
+  
+  @font-face {
+      font-family: 'Roboto';
+      src: url('assets/fonts/Roboto-Bold.ttf');
+      font-weight: 700;
+      font-style: normal;
+  }
+  
+  @font-face {
+      font-family: 'Roboto';
+      src: url('assets/fonts/Roboto-Regular.ttf');
+      font-weight: 400;
+      font-style: normal;
+  }
+  
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--charcoal-grey);
+    color: var(--dark-slate-grey);
+    font-family: Roboto;
+  }
+  
+  p {
+    line-height: 1.5;
+  }
+  
+  img {
+    width: 100%;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  
+  .btn {
+    padding: 1rem;
+    background: var(--dark-slate-grey);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: box-shadow 100ms ease;
+  }
+  
+  .btn:hover {
+    background: rgb(255,83,121);
+    background: linear-gradient(90deg, rgba(255,83,121,1), rgba(255,103,62,1)); 
+    box-shadow: 0 .8rem 2rem -10px var(--tomato);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  
+  .section {
+    min-height: 100%;
+    width: 100%;
+  }
+  
+  .su {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+  
+  .hero-image--desktop {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: none;
+  }
+  
+  .su__content {
+    padding: 2rem;
+  }
+  
+  .su__title {
+    margin-bottom: 1.5rem;
+  }
+  
+  .list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .list__item img {
+    max-width: 1.4rem;
+  }
+  
+  .su__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  
+  .su__form--alert .su__error-msg {
+    display: block;
+  }
+  
+  .su__form--alert .su__input {
+    color: var(--tomato);
+    border-color: var(--tomato);
+    background: hsl(4, 100%, 67%, 15%);
+  }
+  
+  .su_labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  
+  .su__label, .su__error-msg {
+    font-size: .8rem;
+    font-weight: bold;
+  }
+  
+  .su__error-msg {
+    display: none;
+    color: var(--tomato);
+  }
+  
+  .su__input {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--grey);
+    border-radius: 6px;
+    color: var(--dark-slate-grey);
+  }
+  
+  .su__input:focus {
+    outline: 1px solid var(--dark-slate-grey);
+  }
+  
+  .msg {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    background: var(--white);
+  }
+  
+  .msg__main {
+    margin-top: 6rem;
+  }
+  
+  .msg__icon {
+    width: 4rem;
+  }
+  
+  .msg__title {
+    margin: 2.5rem 0 1.5rem;
+  }
+  
+  @media screen and (min-width: 576px) {
+    .title {
+      font-size: 3.6rem;
+    }
+    
+    .section {
+      min-height: auto;
+      width: auto;
+      padding: 1.5rem;
+      border-radius: 2rem;
+      max-width: 58rem;
+    }
+    
+    .su {
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .hero-image--mobile {
+      display: none
+    }
+    
+    .hero-image--desktop {
+      display: block;
+    }
+    
+    .msg {
+      max-width: 30rem;
+      padding: 3rem;
+    }
+    
+    .msg__main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 0;
+      margin-bottom: 1.5rem;
+    }
+    
+    .msg__title {
+      margin: 0;
+    }
+  }
+  
+  .su {
+   animation: slide-up 1s ease-out;
+  }
+  
+  .hero-image {
+    position: relative;
+    animation: op-up 1s ease-out forwards;
+    animation-delay: .5s;
+    opacity: 0;
+  }
+  
+  .su__content {
+    position: relative;
+    animation: op-up 1s ease-out forwards;
+    animation-delay: .9s;
+    opacity: 0;
+  }
+  
+  @keyframes slide-up {
+    0% {
+      transform: translate(0, 4rem);
+      opacity: 0;
+    }
+    
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes op-up {
+    0% {
+      transform: translate(0, 4rem);
+      opacity: 0;
+    }
+    
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
